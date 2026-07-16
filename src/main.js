@@ -4,7 +4,7 @@ const data = {
   name: 'Noah Hardings',
   tagline: 'Software and Infrastructure engineer',
   intro:
-    'I build Discord bots and backend tools in Kotlin and Java, and I run the servers they live on.',
+    'Hello, I\'m Noah, a software engineer and system administrator. I have experience with building AIO minecraft cores, Discord bots, and I also like doing system administration. I\'m currently working on a few open-source projects, and I\'m always looking for new opportunities to learn and grow.',
   links: [
     { label: 'github', href: 'https://github.com/noahhardings' },
     { label: 'bio', href: 'https://e-z.bio/kotlin' },
@@ -14,15 +14,15 @@ const data = {
   skills: [
     {
       title: 'Discord bot development',
-      body: 'Designing and shipping Discord bots end to end — command frameworks, event handling, sharding, and persistence with the JVM Discord libraries (JDA / Kord).',
+      body: 'I like to utilize JDA when It comes to bot development, I believe that I\'m very qualified and experienced when it comes to the JDA ecosystem, and I can do pretty much anything with it.',
     },
     {
       title: 'Kotlin & Java',
-      body: 'My core stack. Idiomatic Kotlin and Java for bots, backend services, and tooling — coroutines, clean architecture, and maintainable codebases.',
+      body: 'I use both, Kotlin and Java daily. Whether it\'s me maintaing a project, such as Alchemist, fixing bugs for a client, or just doing some personal projects, I\'m very comfortable with both languages.',
     },
     {
       title: 'System administration',
-      body: 'Hands-on Linux server management, deployments, and uptime. I handle system administration for Reece at Cloudexa Hosting.',
+      body: 'I\'ve been maintaing Linux servers for a while now, and I\'ve learned a lot about how to keep servers running smoothly. I\'m able to do essentially anything, whether that\'s pterodactyl installs, server monitoring tools, automated backups, etc.',
     },
   ],
 
@@ -31,7 +31,7 @@ const data = {
       name: 'Alchemist',
       href: 'https://github.com/noahhardings/Alchemist',
       role: 'Maintainer',
-      body: 'An open-source project I maintain on GitHub — feature development, reviewing contributions, and keeping the codebase healthy.',
+      body: 'Alchemist is an AIO minecraft rank core, featuring a multitude of features which you can find on the github. I\'ve personally been maintaing the project for the past few months.',
     },
   ],
 
@@ -41,7 +41,7 @@ const data = {
       org: 'Matrix Studios, Inc.',
       href: 'https://matrix-studios-software.github.io/',
       detail:
-        'Software engineering at Matrix Studios, Inc. — building and shipping software.',
+        'Software engineering at Matrix Studios, Inc. — working on various private software projects.',
     },
     {
       role: 'COO',
@@ -55,7 +55,7 @@ const data = {
       org: 'Cloudexa Hosting',
       href: 'https://cloudexa-hosting.com',
       detail:
-        'System administration for Reece at Cloudexa Hosting — managing servers, deployments, and keeping infrastructure reliable and online.',
+        'System administration for Reece at Cloudexa Hosting. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
     },
   ],
 
@@ -64,14 +64,20 @@ const data = {
       name: 'itztylxr',
       role: 'Reputable community member',
       quote:
-        'Noah is reliable and knows his stuff — solid developer and someone you can trust to get things done.',
+        'I\'ve worked with Noah on several projects and he consistently delivers high-quality work. He\'s a great team member and a pleasure to collaborate with.',
     },
     {
       name: 'Reece',
       role: 'Cloudexa Hosting',
       quote:
-        'Noah keeps our infrastructure running without a hitch. Dependable, sharp, and easy to work with.',
+        'I really like Noah because he\'s knowledgeable, reliable, and always willing to help me out when I need it something done.',
     },
+    {
+      name: '98ping',
+      role: 'Owner of Matrix Studios, Inc.',
+      quote:
+        'Noah is a very talented software engineer. He\'s been a great asset to my team and I highly recommend him for any project you may have.',
+    }
   ],
 }
 
