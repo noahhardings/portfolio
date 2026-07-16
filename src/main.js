@@ -104,7 +104,7 @@ function render() {
       </header>
 
       <div class="avatar">
-        <img src="./avatar.jpg" alt="${data.name}"
+        <img src="./avatar.png" alt="${data.name}"
           onerror="this.closest('.avatar').classList.add('is-empty'); this.replaceWith(Object.assign(document.createElement('span'),{className:'avatar-initials',textContent:'NH'}))" />
       </div>
 
