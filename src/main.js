@@ -9,9 +9,8 @@ const data = {
     { label: 'github', href: 'https://github.com/noahhardings' },
     { label: 'bio', href: 'https://e-z.bio/kotlin' },
     { label: 'discord', copy: 'noah.kt', title: 'noah.kt — click to copy' },
-    { label: 'namemc', href: 'https://namemc.com/profile/noahcodes'},
-    { label: 'paypal', href: 'https://paypal.me/redisport' },
-    { label: 'telegram', href: 'https://t.me/noahdotkt'} 
+    { label: 'telegram', href: 'https://t.me/noahdotkt'},
+    { label: 'namemc', href: 'https://namemc.com/profile/noahcodes'}
   ],
 
   skills: [
@@ -160,9 +159,20 @@ function render() {
         <p class="subtitle">${data.tagline}</p>
       </header>
 
-      <div class="avatar">
-        <img src="./avatar.png" alt="${data.name}"
-          onerror="this.closest('.avatar').classList.add('is-empty'); this.replaceWith(Object.assign(document.createElement('span'),{className:'avatar-initials',textContent:'NH'}))" />
+      <div class="hero-row">
+        <div class="avatar">
+          <img src="./avatar.png" alt="${data.name}"
+            onerror="this.closest('.avatar').classList.add('is-empty'); this.replaceWith(Object.assign(document.createElement('span'),{className:'avatar-initials',textContent:'NH'}))" />
+        </div>
+
+        <a class="status" id="status" target="_blank" rel="noopener noreferrer" aria-label="Current status">
+          <img class="st-art" alt="" />
+          <div class="st-info">
+            <div class="st-now"><span class="st-bars"><i></i><i></i><i></i></span> <span class="st-label"></span></div>
+            <div class="st-title"></div>
+            <div class="st-sub"></div>
+          </div>
+        </a>
       </div>
 
       <p class="intro">${data.intro}</p>
@@ -213,7 +223,7 @@ function render() {
       </section>
 
       <section class="section">
-        <h2>Vouches</h2>
+        <h2>Reputable Vouches</h2>
         ${data.vouches
           .map(
             (v) => `
@@ -234,7 +244,130 @@ function render() {
 
 render()
 
-// Live local clock in Central Time (auto-shows CST/CDT with DST)
+function buildSky() {
+  const sky = document.createElement('div')
+  sky.className = 'sky'
+  sky.setAttribute('aria-hidden', 'true')
+
+  for (let i = 0; i < 28; i++) {
+    const dot = document.createElement('span')
+    dot.className = 'star'
+    dot.style.top = Math.random() * 100 + '%'
+    dot.style.left = Math.random() * 100 + '%'
+    dot.style.animationDelay = (Math.random() * 4).toFixed(2) + 's'
+    dot.style.animationDuration = (2 + Math.random() * 3).toFixed(2) + 's'
+    sky.appendChild(dot)
+  }
+
+  const count = 6
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement('span')
+    star.className = 'shooting-star'
+    star.style.top = Math.random() * 60 + '%'
+    star.style.left = Math.random() * 80 + '%'
+    star.style.animationDelay = (Math.random() * 6).toFixed(2) + 's'
+    star.style.animationDuration = (3.5 + Math.random() * 4).toFixed(2) + 's'
+    sky.appendChild(star)
+  }
+
+  document.body.prepend(sky)
+}
+buildSky()
+
+const DISCORD_USER_ID = '1516940703333224515'
+
+function assetUrl(appId, img) {
+  if (!img) return ''
+  if (img.startsWith('mp:')) return 'https://media.discordapp.net/' + img.slice(3)
+  return `https://cdn.discordapp.com/app-assets/${appId}/${img}.png`
+}
+
+let statusCards = []
+let statusIndex = 0
+
+async function fetchPresence() {
+  const el = document.querySelector('#status')
+  if (!el || !DISCORD_USER_ID) return
+  try {
+    const res = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`)
+    const { data } = await res.json()
+    const cards = []
+
+    if (data && data.listening_to_spotify && data.spotify) {
+      const s = data.spotify
+      cards.push({
+        accent: '#1db954',
+        bars: true,
+        label: 'Now playing',
+        art: s.album_art_url,
+        title: s.song,
+        sub: s.artist.replace(/;\s*/g, ', '),
+        href: `https://open.spotify.com/track/${s.track_id}`,
+      })
+    }
+
+    const editors = [
+      { match: /intellij/i, accent: '#f24d98' },
+      { match: /visual studio code|vs ?code/i, accent: '#3794ff' },
+    ]
+    const activities = data && data.activities ? data.activities : []
+    for (const ed of editors) {
+      const act = activities.find((a) => ed.match.test(a.name || ''))
+      if (!act) continue
+      const img = act.assets && (act.assets.large_image || act.assets.small_image)
+      cards.push({
+        accent: ed.accent,
+        bars: false,
+        label: act.name,
+        art: assetUrl(act.application_id, img),
+        title: act.details || act.name,
+        sub: act.state || '',
+        href: '',
+      })
+    }
+
+    statusCards = cards
+    if (statusIndex >= cards.length) statusIndex = 0
+    renderStatus()
+  } catch {
+    statusCards = []
+    renderStatus()
+  }
+}
+
+function renderStatus() {
+  const el = document.querySelector('#status')
+  if (!el) return
+  if (!statusCards.length) {
+    el.classList.remove('is-active')
+    return
+  }
+  const c = statusCards[statusIndex % statusCards.length]
+  el.classList.add('is-active')
+  el.classList.toggle('has-bars', !!c.bars)
+  el.style.setProperty('--st-accent', c.accent)
+  el.querySelector('.st-art').src = c.art
+  el.querySelector('.st-label').textContent = c.label
+  el.querySelector('.st-title').textContent = c.title
+  el.querySelector('.st-sub').textContent = c.sub
+  if (c.href) {
+    el.setAttribute('href', c.href)
+    el.classList.add('is-link')
+  } else {
+    el.removeAttribute('href')
+    el.classList.remove('is-link')
+  }
+}
+
+fetchPresence()
+setInterval(fetchPresence, 8000)
+setInterval(() => {
+  if (statusCards.length > 1) {
+    statusIndex = (statusIndex + 1) % statusCards.length
+    renderStatus()
+  }
+}, 5000)
+
 function updateClock() {
   const el = document.querySelector('#clock')
   if (!el) return
@@ -250,7 +383,6 @@ function updateClock() {
 updateClock()
 setInterval(updateClock, 1000)
 
-// Copy Discord username to clipboard on click
 document.querySelectorAll('[data-copy]').forEach((el) => {
   el.addEventListener('click', async () => {
     const original = el.textContent

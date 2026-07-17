@@ -31,13 +31,85 @@ a:hover {
   color: var(--muted);
 }
 
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.4;
+  animation-name: twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px 3px rgba(255, 255, 255, 0.8);
+  opacity: 0;
+  animation-name: shoot;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 1.5px;
+  right: 3px;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.9), transparent);
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(80vw, 80vw) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+
 .wrap {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 48px 24px 64px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Top nav */
 .topnav {
   display: flex;
   align-items: center;
@@ -71,7 +143,6 @@ a:hover {
   color: var(--muted);
 }
 
-/* Header */
 .header {
   margin-bottom: 24px;
 }
@@ -89,23 +160,30 @@ a:hover {
   margin: 0;
 }
 
-/* Avatar */
-.avatar {
+.hero-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin: 0 0 28px;
-  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
   overflow: hidden;
-  max-width: 340px;
 }
 
 .avatar img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .avatar.is-empty {
-  width: 96px;
-  height: 96px;
   border-radius: 50%;
   border: 1px solid var(--border);
   display: grid;
@@ -114,17 +192,123 @@ a:hover {
 }
 
 .avatar-initials {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 600;
   color: var(--muted);
 }
 
-/* Intro */
+.status {
+  --st-accent: #1db954;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+  max-width: 100%;
+  padding: 10px 14px 10px 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  background: #101010;
+  cursor: default;
+  transition: border-color 0.2s;
+}
+
+.status.is-active {
+  display: flex;
+}
+
+.status.is-link {
+  cursor: pointer;
+}
+
+.status:hover {
+  color: var(--text);
+  border-color: #3a3a3a;
+}
+
+.st-art {
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  background: #1a1a1a;
+}
+
+.st-info {
+  min-width: 0;
+}
+
+.st-now {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--st-accent);
+  margin-bottom: 2px;
+}
+
+.st-title {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.st-sub {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.st-bars {
+  display: none;
+  align-items: flex-end;
+  gap: 2px;
+  height: 11px;
+}
+
+.status.has-bars .st-bars {
+  display: inline-flex;
+}
+
+.st-bars i {
+  width: 2px;
+  background: var(--st-accent);
+  animation: eq 0.9s ease-in-out infinite;
+}
+
+.st-bars i:nth-child(1) {
+  height: 6px;
+  animation-delay: 0s;
+}
+.st-bars i:nth-child(2) {
+  height: 11px;
+  animation-delay: 0.3s;
+}
+.st-bars i:nth-child(3) {
+  height: 8px;
+  animation-delay: 0.6s;
+}
+
+@keyframes eq {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
 .intro {
   margin: 0 0 44px;
 }
 
-/* Sections */
 .section {
   margin-bottom: 44px;
 }
@@ -163,7 +347,6 @@ a:hover {
   margin-left: 8px;
 }
 
-/* Vouches */
 .vouch {
   margin: 0 0 20px;
   padding-left: 14px;
@@ -194,7 +377,6 @@ a:hover {
   font-variant-numeric: tabular-nums;
 }
 
-/* Footer */
 .footer {
   margin-top: 56px;
   padding-top: 20px;
