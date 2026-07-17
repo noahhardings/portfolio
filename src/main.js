@@ -229,7 +229,7 @@ function render() {
       </section>
 
       <footer class="footer">
-        © ${new Date().getFullYear()} ${data.name} - Built with ❤️ by Claude hehe
+        © ${new Date().getFullYear()} ${data.name}
       </footer>
     </main>
   `
