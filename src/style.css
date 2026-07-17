@@ -187,6 +187,13 @@ a:hover {
   color: var(--muted);
 }
 
+.topnav .clock {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Footer */
 .footer {
   margin-top: 56px;

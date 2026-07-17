@@ -11,6 +11,7 @@ const data = {
     { label: 'discord', copy: 'noah.kt', title: 'noah.kt — click to copy' },
     { label: 'namemc', href: 'https://namemc.com/profile/noahcodes'},
     { label: 'paypal', href: 'https://paypal.me/redisport' },
+    { label: 'telegram', href: 'https://t.me/noahdotkt'} 
   ],
 
   skills: [
@@ -33,51 +34,52 @@ const data = {
       name: 'Alchemist',
       href: 'https://github.com/noahhardings/Alchemist',
       role: 'Maintainer',
-      body: 'Alchemist is an AIO minecraft rank core, featuring a multitude of features which you can find on the github. I\'ve personally been maintaing the project for the past few months.',
+      body: 'Alchemist is a fast, cross-version Minecraft server rank/permissions core (ranks, punishments, friends, parties, staff utils, and webhooks); Built with Kotlin on the Paper API, using MongoDB / MySQL and Redis to sync data across multiple servers. It is designed to be easy to use, while also being powerful and flexible.',
     },
     {
       name: 'Staff Core',
       role: 'Owner',
-      body: 'I created a staff core that allows you to have an easy to use punishment system, it also has vpn detection, and alts detection system, and much more. This project is currently private, however I\'m planning on making it public soon.' 
+      body: 'A Minecraft staff moderation plugin built with Kotlin on the Paper API, using MySQL and Redis to sync bans, mutes, chat controls, and vanish across multiple servers.',
     },
     {
       name: 'Honey',
       role: 'Developer',
-      body: 'Honey was originally created by nosequel in 2018, unforunately nosequel has passed, so me and my team at Matrix Studios, decided to contiune the project. Honey is a data handler that wraps mongo, redis, and a couple of other databases into one easy to use package.'
+      body: 'Honey is a small Kotlin library that saves and loads your data from MongoDB, Redis, or files using the same simple code, so you can swap databases without rewriting anything, and it can sync data live across servers.'
     },
-    {
-      name: 'Clerk',
-      role: 'Developer',
-      body: 'Clerk is a minecraft pluigin that spoofs players and acts as a player simulator, it\'s a very cool project that we\'ve managed to make quite useful for server owners'
-    },
-    {
-      name: 'Casket',
-      role: 'Developer',
-      body: 'Casket is an AIO crate plugin created by me and my team at Matrix Studios, it\'s a very cool plugin that allows you to create customizable crates, with cool openings, and a lot of other features.'
-    },
-    {
-      name: 'Wave',
-      role: 'Developer',
-      body: 'Wave is an AIO hub core plugin that I created that allows for ease of use for server owners, it has a lot of features that make it easy to create and manage a hub server, it includes a server selector, jump pads, and a lot of other features.'
-    },
+    // {
+    //   name: 'Clerk',
+    //   role: 'Developer',
+    //   body: 'Clerk is a minecraft pluigin that spoofs players and acts as a player simulator, it\'s a very cool project that we\'ve managed to make quite useful for server owners'
+    // },
+    // {
+    //   name: 'Casket',
+    //   role: 'Developer',
+    //   body: 'Casket is an AIO crate plugin created by me and my team at Matrix Studios, it\'s a very cool plugin that allows you to create customizable crates, with cool openings, and a lot of other features.'
+    // },
+    // {
+    //   name: 'Wave',
+    //   role: 'Developer',
+    //   body: 'Wave is an AIO hub core plugin that I created that allows for ease of use for server owners, it has a lot of features that make it easy to create and manage a hub server, it includes a server selector, jump pads, and a lot of other features.'
+    // },
     {
       name: 'Skeleton',
       role: 'Developer',
+      href: 'https://github.com/Matrix-Studios-Software/skeleton',
       body: 'Skeleton is an extensive easy-to-use framework that supports creating, destroying, and managing containers using the Docker framework. It is designed to be simple and easy to use, while also being powerful and flexible.'
     },
     {
       name: 'Portfolio',
       href: 'https://github.com/noahhardings/portfolio',
       role: 'Developer',
-      body: 'This portfolio was created by me, it\'s a simple and easy to use portfolio that allows you to showcase your skills and experience, it also has a vouch system that allows people to vouch for you, and it\'s very easy to use.'
+      body: 'Nothing much to say here, built on NodeJS, simple site that allows me to showcase my projects, reviews, and general information.'
     },
     {
-      name: 'Townybot',
+      name: 'Towny Bot',
       role: 'Developer',
-      body: 'Townybot is a minecraft paper plugin that hooks into the Towny API, and allows you to pull information about nations, towns, and residents to discord, it also hooks into the Towny Resources API to view the resources of a town.'
+      body: 'Towny Bot is a minecraft paper plugin that hooks into the Towny API, and allows you to pull information about nations, towns, and residents to discord, it also hooks into the Towny Resources API to view the resources of a town.'
     },
     {
-      name: 'FRC Website',
+      name: 'FRC Team Website',
       role: 'Developer',
       body: 'I created a website for my high school\'s FRC team, it\'s a simple and easy to use website that allows you to view the team\'s information, and it also has a blog that allows you to view the team\'s updates.'
     }
@@ -130,13 +132,7 @@ const data = {
       name: 'BMoneyBoy',
       role: 'Owner of MoneySMP',
       quote:
-        'I vouch for noah',
-    },
-    {
-      name: 'Thomas',
-      role: 'Owner of MoneySMP',
-      quote:
-        'I vouch for noah',
+        'Noah has been a great help to me and my team. He\'s always willing to lend a hand and is very knowledgeable in his field.',
     }
   ],
 }
@@ -156,6 +152,7 @@ function render() {
     <main class="wrap">
       <nav class="topnav">
         ${data.links.map(navLink).join('<span class="sep">·</span>')}
+        <span class="clock" id="clock"></span>
       </nav>
 
       <header class="header">
@@ -236,6 +233,22 @@ function render() {
 }
 
 render()
+
+// Live local clock in Central Time (auto-shows CST/CDT with DST)
+function updateClock() {
+  const el = document.querySelector('#clock')
+  if (!el) return
+  el.textContent = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+    timeZoneName: 'short',
+  }).format(new Date())
+}
+updateClock()
+setInterval(updateClock, 1000)
 
 // Copy Discord username to clipboard on click
 document.querySelectorAll('[data-copy]').forEach((el) => {
