@@ -9,6 +9,8 @@ const data = {
     { label: 'github', href: 'https://github.com/noahhardings' },
     { label: 'bio', href: 'https://e-z.bio/kotlin' },
     { label: 'discord', copy: 'noah.kt', title: 'noah.kt — click to copy' },
+    { label: 'namemc', href: 'https://namemc.com/profile/noahcodes'},
+    { label: 'paypal', href: 'https://paypal.me/redisport' },
   ],
 
   skills: [
@@ -33,6 +35,52 @@ const data = {
       role: 'Maintainer',
       body: 'Alchemist is an AIO minecraft rank core, featuring a multitude of features which you can find on the github. I\'ve personally been maintaing the project for the past few months.',
     },
+    {
+      name: 'Staff Core',
+      role: 'Owner',
+      body: 'I created a staff core that allows you to have an easy to use punishment system, it also has vpn detection, and alts detection system, and much more. This project is currently private, however I\'m planning on making it public soon.' 
+    },
+    {
+      name: 'Honey',
+      role: 'Developer',
+      body: 'Honey was originally created by nosequel in 2018, unforunately nosequel has passed, so me and my team at Matrix Studios, decided to contiune the project. Honey is a data handler that wraps mongo, redis, and a couple of other databases into one easy to use package.'
+    },
+    {
+      name: 'Clerk',
+      role: 'Developer',
+      body: 'Clerk is a minecraft pluigin that spoofs players and acts as a player simulator, it\'s a very cool project that we\'ve managed to make quite useful for server owners'
+    },
+    {
+      name: 'Casket',
+      role: 'Developer',
+      body: 'Casket is an AIO crate plugin created by me and my team at Matrix Studios, it\'s a very cool plugin that allows you to create customizable crates, with cool openings, and a lot of other features.'
+    },
+    {
+      name: 'Wave',
+      role: 'Developer',
+      body: 'Wave is an AIO hub core plugin that I created that allows for ease of use for server owners, it has a lot of features that make it easy to create and manage a hub server, it includes a server selector, jump pads, and a lot of other features.'
+    },
+    {
+      name: 'Skeleton',
+      role: 'Developer',
+      body: 'Skeleton is an extensive easy-to-use framework that supports creating, destroying, and managing containers using the Docker framework. It is designed to be simple and easy to use, while also being powerful and flexible.'
+    },
+    {
+      name: 'Portfolio',
+      href: 'https://github.com/noahhardings/portfolio',
+      role: 'Developer',
+      body: 'This portfolio was created by me, it\'s a simple and easy to use portfolio that allows you to showcase your skills and experience, it also has a vouch system that allows people to vouch for you, and it\'s very easy to use.'
+    },
+    {
+      name: 'Townybot',
+      role: 'Developer',
+      body: 'Townybot is a minecraft paper plugin that hooks into the Towny API, and allows you to pull information about nations, towns, and residents to discord, it also hooks into the Towny Resources API to view the resources of a town.'
+    },
+    {
+      name: 'FRC Website',
+      role: 'Developer',
+      body: 'I created a website for my high school\'s FRC team, it\'s a simple and easy to use website that allows you to view the team\'s information, and it also has a blog that allows you to view the team\'s updates.'
+    }
   ],
 
   experience: [
@@ -77,6 +125,18 @@ const data = {
       role: 'Owner of Matrix Studios, Inc.',
       quote:
         'Noah is a very talented software engineer. He\'s been a great asset to my team and I highly recommend him for any project you may have.',
+    },
+    {
+      name: 'BMoneyBoy',
+      role: 'Owner of MoneySMP',
+      quote:
+        'I vouch for noah',
+    },
+    {
+      name: 'Thomas',
+      role: 'Owner of MoneySMP',
+      quote:
+        'I vouch for noah',
     }
   ],
 }
@@ -169,7 +229,7 @@ function render() {
       </section>
 
       <footer class="footer">
-        © ${new Date().getFullYear()} ${data.name}
+        © ${new Date().getFullYear()} ${data.name} - Built with ❤️ by Claude hehe
       </footer>
     </main>
   `
