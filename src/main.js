@@ -15,15 +15,15 @@ const data = {
 
   skills: [
     {
-      title: 'Discord bot development',
+      title: 'Discord Bot Development',
       body: 'I like to utilize JDA when It comes to bot development, I believe that I\'m very qualified and experienced when it comes to the JDA ecosystem, and I can do pretty much anything with it.',
     },
     {
-      title: 'Kotlin & Java',
+      title: 'Kotlin & Java Development',
       body: 'I use both, Kotlin and Java daily. Whether it\'s me maintaing a project, such as Alchemist, fixing bugs for a client, or just doing some personal projects, I\'m very comfortable with both languages.',
     },
     {
-      title: 'System administration',
+      title: 'System Administration',
       body: 'I\'ve been maintaing Linux servers for a while now, and I\'ve learned a lot about how to keep servers running smoothly. I\'m able to do essentially anything, whether that\'s pterodactyl installs, server monitoring tools, automated backups, etc.',
     },
   ],
@@ -81,6 +81,12 @@ const data = {
       name: 'FRC Team Website',
       role: 'Developer',
       body: 'I created a website for my high school\'s FRC team, it\'s a simple and easy to use website that allows you to view the team\'s information, and it also has a blog that allows you to view the team\'s updates.'
+    },
+    {
+      name: 'Iustitia',
+      href: 'https://thoria.fyi/iustitia/',
+      role: 'Contributor',
+      body: 'Iustitia is a client sided 1.21.11 anticheat that I ported to 26.1 for the developer, Thoria.'
     }
   ],
 
@@ -106,6 +112,13 @@ const data = {
       detail:
         'System administration for Reece at Cloudexa Hosting. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
     },
+    {
+      role: 'System Administrator',
+      org: 'UnstablePvP',
+      href: 'https://unstablepvp.net',
+      detail:
+        'System administration for UnstablePvP, a Minecraft server network. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
+    }
   ],
 
   vouches: [
@@ -117,7 +130,7 @@ const data = {
     },
     {
       name: 'Reece',
-      role: 'Cloudexa Hosting',
+      role: 'Owner of Cloudexa Hosting',
       quote:
         'I really like Noah because he\'s knowledgeable, reliable, and always willing to help me out when I need it something done.',
     },
@@ -132,6 +145,12 @@ const data = {
       role: 'Owner of MoneySMP',
       quote:
         'Noah has been a great help to me and my team. He\'s always willing to lend a hand and is very knowledgeable in his field.',
+    },
+    {
+      name: 'Thoria',
+      role: 'Developer of Iustitia',
+      quote:
+        'Noah assisted me with porting Iustitia, my fabric client-sided anticheat to 26.1, he was very helpful and knowledgeable in the process, and I would recommend him to anyone looking for a software engineer.',
     }
   ],
 }
