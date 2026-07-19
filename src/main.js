@@ -154,15 +154,14 @@ const data = {
       role: 'Owner of MoneySMP',
       quote:
         'Noah has been a great help to me and my team. He\'s always willing to lend a hand and is very knowledgeable in his field.',
+    },
+    {
+      name: 'Thoria',
+      href: 'https://discord.com/users/1284495349267959828',
+      role: 'Developer of Iustitia',
+      quote:
+        'Noah assisted me with porting Iustitia, my fabric client-sided anticheat to 26.1, he was very helpful and knowledgeable in the process, and I would recommend him to anyone looking for a software engineer.',
     }
-    // Keeping this silent until he gives me a real quote
-    // {
-    //   name: 'Thoria',
-    //   href: 'https://discord.com/users/1284495349267959828',
-    //   role: 'Developer of Iustitia',
-    //   quote:
-    //     'Noah assisted me with porting Iustitia, my fabric client-sided anticheat to 26.1, he was very helpful and knowledgeable in the process, and I would recommend him to anyone looking for a software engineer.',
-    // }
   ],
 }
 
