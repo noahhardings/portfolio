@@ -151,7 +151,7 @@ const data = {
     {
       name: 'BMoney',
       href: 'https://discord.com/users/682708736359399524',
-      role: 'Owner of MoneySMP',
+      role: 'Community Member / Friend',
       quote:
         'Noah has been a great help to me and my team. He\'s always willing to lend a hand and is very knowledgeable in his field.',
     },
