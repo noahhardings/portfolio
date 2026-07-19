@@ -45,21 +45,6 @@ const data = {
       role: 'Developer',
       body: 'Honey is a small Kotlin library that saves and loads your data from MongoDB, Redis, or files using the same simple code, so you can swap databases without rewriting anything, and it can sync data live across servers.'
     },
-    // {
-    //   name: 'Clerk',
-    //   role: 'Developer',
-    //   body: 'Clerk is a minecraft pluigin that spoofs players and acts as a player simulator, it\'s a very cool project that we\'ve managed to make quite useful for server owners'
-    // },
-    // {
-    //   name: 'Casket',
-    //   role: 'Developer',
-    //   body: 'Casket is an AIO crate plugin created by me and my team at Matrix Studios, it\'s a very cool plugin that allows you to create customizable crates, with cool openings, and a lot of other features.'
-    // },
-    // {
-    //   name: 'Wave',
-    //   role: 'Developer',
-    //   body: 'Wave is an AIO hub core plugin that I created that allows for ease of use for server owners, it has a lot of features that make it easy to create and manage a hub server, it includes a server selector, jump pads, and a lot of other features.'
-    // },
     {
       name: 'Skeleton',
       role: 'Developer',
@@ -122,7 +107,7 @@ const data = {
     {
       role: 'System Administrator',
       org: 'UnstablePvP',
-      href: 'https://unstablepvp.net',
+      href: 'https://discord.gg/unstablepvp',
       detail:
         'System administration for UnstablePvP, a Minecraft server network. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
       positions: [
@@ -132,6 +117,7 @@ const data = {
     {
       role: 'Moderator',
       org: 'Vincent Vanilla',
+      href: 'https://discord.gg/vincentvanilla',
       detail:
           'Moderator for Vincent Vanilla, a Minecraft server network. I assist with moderation, player reports, and more.',
       positions: [
@@ -142,35 +128,41 @@ const data = {
 
   vouches: [
     {
-      name: 'itztylxr',
+      name: 'Tyler',
+      href: 'https://discord.com/users/303303309085769730',
       role: 'Reputable community member',
       quote:
         'I\'ve worked with Noah on several projects and he consistently delivers high-quality work. He\'s a great team member and a pleasure to collaborate with.',
     },
     {
       name: 'Reece',
+      href: 'https://discord.com/users/988514405056667729',
       role: 'Owner of Cloudexa Hosting',
       quote:
         'I really like Noah because he\'s knowledgeable, reliable, and always willing to help me out when I need it something done.',
     },
     {
       name: '98ping',
+      href: 'https://discord.com/users/421443176838987786',
       role: 'Owner of Matrix Studios, Inc.',
       quote:
         'Noah is a very talented software engineer. He\'s been a great asset to my team and I highly recommend him for any project you may have.',
     },
     {
-      name: 'BMoneyBoy',
+      name: 'BMoney',
+      href: 'https://discord.com/users/682708736359399524',
       role: 'Owner of MoneySMP',
       quote:
         'Noah has been a great help to me and my team. He\'s always willing to lend a hand and is very knowledgeable in his field.',
-    },
-    {
-      name: 'Thoria',
-      role: 'Developer of Iustitia',
-      quote:
-        'Noah assisted me with porting Iustitia, my fabric client-sided anticheat to 26.1, he was very helpful and knowledgeable in the process, and I would recommend him to anyone looking for a software engineer.',
     }
+    // Keeping this silent until he gives me a real quote
+    // {
+    //   name: 'Thoria',
+    //   href: 'https://discord.com/users/1284495349267959828',
+    //   role: 'Developer of Iustitia',
+    //   quote:
+    //     'Noah assisted me with porting Iustitia, my fabric client-sided anticheat to 26.1, he was very helpful and knowledgeable in the process, and I would recommend him to anyone looking for a software engineer.',
+    // }
   ],
 }
 
