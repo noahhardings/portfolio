@@ -340,6 +340,32 @@ a:hover {
   font-size: 15px;
 }
 
+.positions {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0 0 0 12px;
+  border-left: 1px solid var(--border);
+}
+
+.positions li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.pos-title {
+  color: var(--text);
+}
+
+.pos-dates {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
 .tag {
   font-weight: 400;
   font-size: 13px;

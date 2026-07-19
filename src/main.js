@@ -104,6 +104,10 @@ const data = {
       href: 'https://signpost.cv',
       detail:
         'Chief Operating Officer at Signpost, LLC, a subsidiary of Matrix Studios, Inc.',
+      positions: [
+        { title: 'SWE', from: '6/17/26', to: '7/14/26' },
+        { title: 'COO', from: '7/14/26', to: 'Present' }
+      ],
     },
     {
       role: 'System Administrator',
@@ -111,6 +115,9 @@ const data = {
       href: 'https://cloudexa-hosting.com',
       detail:
         'System administration for Reece at Cloudexa Hosting. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
+      positions: [
+        { title: 'System Administrator', from: '4/13/26', to: 'Present' },
+      ],
     },
     {
       role: 'System Administrator',
@@ -118,12 +125,18 @@ const data = {
       href: 'https://unstablepvp.net',
       detail:
         'System administration for UnstablePvP, a Minecraft server network. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
+      positions: [
+        { title: 'System Administrator', from: '7/16/26', to: 'Present' },
+      ],
     },
     {
       role: 'Moderator',
       org: 'Vincent Vanilla',
       detail:
           'Moderator for Vincent Vanilla, a Minecraft server network. I assist with moderation, player reports, and more.',
+      positions: [
+        { title: 'Moderator', from: '7/18/26', to: 'Present' },
+      ],
     }
   ],
 
@@ -242,6 +255,21 @@ function render() {
               <a href="${e.href}" target="_blank" rel="noopener noreferrer">${e.org}</a>
             </div>
             <p class="row-body">${e.detail}</p>
+            ${
+              e.positions && e.positions.length
+                ? `<ul class="positions">
+                    ${e.positions
+                      .map(
+                        (p) => `
+                      <li>
+                        <span class="pos-title">${p.title}</span>
+                        <span class="pos-dates">${p.from} – ${p.to}</span>
+                      </li>`
+                      )
+                      .join('')}
+                  </ul>`
+                : ''
+            }
           </div>`
           )
           .join('')}
