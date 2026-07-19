@@ -130,7 +130,7 @@ const data = {
     {
       name: 'Tyler',
       href: 'https://discord.com/users/303303309085769730',
-      role: 'Reputable community member',
+      role: 'Community Member / Friend',
       quote:
         'I\'ve worked with Noah on several projects and he consistently delivers high-quality work. He\'s a great team member and a pleasure to collaborate with.',
     },
