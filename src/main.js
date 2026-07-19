@@ -118,6 +118,12 @@ const data = {
       href: 'https://unstablepvp.net',
       detail:
         'System administration for UnstablePvP, a Minecraft server network. I assist with Pterodactyl installs, server monitoring tools, automated backups, and more.',
+    },
+    {
+      role: 'Moderator',
+      org: 'Vincent Vanilla',
+      detail:
+          'Moderator for Vincent Vanilla, a Minecraft server network. I assist with moderation, player reports, and more.',
     }
   ],
 
